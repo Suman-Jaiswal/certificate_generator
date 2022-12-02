@@ -25,10 +25,10 @@ export default function Admin() {
 
    useEffect(() => {
 
-      if (localStorage.getItem('adminPass') !== "qwerty") {
-         window.location.href = "/"
-         return;
-      }
+      // if (localStorage.getItem('adminPass') !== "qwerty") {
+      //    window.location.href = "/"
+      //    return;
+      // }
       setLoading(false)
 
    }, [])
