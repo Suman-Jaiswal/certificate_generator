@@ -89,11 +89,12 @@ export default function Admin() {
       },
       name: {
          position: "absolute",
-         top: "43%",
+         top: "49%",
          width: "100%",
          textAlign: "center",
-         fontSize: 200 / 17,
+         fontSize: 200 / 15,
          fontWeight: "bold",
+         color: "#555",
       }
    });
 

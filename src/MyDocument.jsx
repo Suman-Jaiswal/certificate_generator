@@ -34,11 +34,12 @@ export default function MyDocument({ currentParticipant }) {
       },
       name: {
          position: "absolute",
-         top: "45%",
+         top: "50%",
          width: "100%",
          textAlign: "center",
-         fontSize: height / 30,
+         fontSize: height / 25,
          transformOrigin: "100% 100%",
+         color: "#32312f",
       }
    });
 
