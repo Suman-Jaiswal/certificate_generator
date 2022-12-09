@@ -1,14 +1,14 @@
 import { PDFDownloadLink, PDFViewer, StyleSheet } from '@react-pdf/renderer';
-import Mailjet from 'node-mailjet';
+// import Mailjet from 'node-mailjet';
 import React, { useEffect } from 'react'
 import { Modal } from 'react-bootstrap';
 import { participantsData } from './data';
 import MyDocument from './MyDocument';
 
-const mailjet = new Mailjet({
-   apiKey: '07ac58e575dd1452a6a67839c5810966',
-   apiSecret: '610651e00f8431746ab2b222c9a507dd'
-});
+// const mailjet = new Mailjet({
+//    apiKey: '07ac58e575dd1452a6a67839c5810966',
+//    apiSecret: '610651e00f8431746ab2b222c9a507dd'
+// });
 
 export default function Admin() {
 
@@ -34,39 +34,37 @@ export default function Admin() {
 
    }, [])
 
-   const sendMail = () => {
-      const request = mailjet
-         .post('send', { version: 'v3.1' })
-         .request({
-            Messages: [
-               {
-                  From: {
-                     Email: "pilot@mailjet.com",
-                     Name: "Mailjet Pilot"
-                  },
-                  To: [
-                     {
-                        Email: currentParticipant.email,
-                        Name: currentParticipant.name
-                     }
-                  ],
-                  Subject: "Your email flight plan!",
-                  TextPart: "Dear passenger 1, welcome to Mailjet! May the delivery force be with you!",
-                  HTMLPart: "<h3>Dear passenger 1, welcome to <a href=\"https://www.mailjet.com/\">Mailjet</a>!</h3><br />May the delivery force be with you!"
-               }
-            ]
-         })
+   // const sendMail = () => {
+   //    const request = mailjet
+   //       .post('send', { version: 'v3.1' })
+   //       .request({
+   //          Messages: [
+   //             {
+   //                From: {
+   //                   Email: "pilot@mailjet.com",
+   //                   Name: "Mailjet Pilot"
+   //                },
+   //                To: [
+   //                   {
+   //                      Email: currentParticipant.email,
+   //                      Name: currentParticipant.name
+   //                   }
+   //                ],
+   //                Subject: "Your email flight plan!",
+   //                TextPart: "Dear passenger 1, welcome to Mailjet! May the delivery force be with you!",
+   //                HTMLPart: "<h3>Dear passenger 1, welcome to <a href=\"https://www.mailjet.com/\">Mailjet</a>!</h3><br />May the delivery force be with you!"
+   //             }
+   //          ]
+   //       })
 
-      request
-         .then((result) => {
-            console.log(result.body)
-         })
-         .catch((err) => {
-            console.log(err.statusCode)
-         })
-   }
-
-   console.log(participants1)
+   //    request
+   //       .then((result) => {
+   //          console.log(result.body)
+   //       })
+   //       .catch((err) => {
+   //          console.log(err.statusCode)
+   //       })
+   // }
 
    useEffect(() => {
       setParticipants1(participantsData.filter(p => p.domain === "AI/ML").splice(10 * state1, 10));

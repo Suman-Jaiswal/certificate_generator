@@ -13,9 +13,6 @@ function App() {
    const [loading, setLoading] = React.useState(true);
    const [currentParticipant, setCurrentParticipant] = React.useState(null);
 
-
-   console.log(hasheduri)
-
    const participants = participantsData
 
    useEffect(() => {
