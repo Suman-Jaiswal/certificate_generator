@@ -201,7 +201,7 @@ export default function Admin() {
                      }
                   </PDFDownloadLink>
                </div>
-               <button className='btn btn-success' onClick={sendMail}>Send Mail</button>
+               {/* <button className='btn btn-success' onClick={sendMail}>Send Mail</button> */}
             </Modal.Footer>
          </Modal>
       </div>
