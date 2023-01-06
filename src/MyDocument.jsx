@@ -11,9 +11,9 @@ export default function MyDocument({ currentParticipant }) {
 
    useEffect(() => {
       if (!currentParticipant) return;
-      if (currentParticipant.domain === "AI/ML") setImg("2.png");
-      else if (currentParticipant.domain === "Ethical Hacking") setImg("3.png");
-      else setImg("4.png");
+      if (currentParticipant.domain === "App Development") setImg("6.png");
+      else if (currentParticipant.domain === "Machine Learning") setImg("4.png");
+      else setImg("5.png");
    }, [currentParticipant])
 
    const styles = StyleSheet.create({

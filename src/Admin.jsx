@@ -2,7 +2,7 @@ import { PDFDownloadLink, PDFViewer, StyleSheet } from '@react-pdf/renderer';
 // import Mailjet from 'node-mailjet';
 import React, { useEffect } from 'react'
 import { Modal } from 'react-bootstrap';
-import { participantsData } from './data';
+import { participantsData } from './data2';
 import MyDocument from './MyDocument';
 
 // const mailjet = new Mailjet({
@@ -20,9 +20,9 @@ export default function Admin() {
    const [show, setShow] = React.useState(false);
    const [currentParticipant, setCurrentParticipant] = React.useState(null);
 
-   const [participants1, setParticipants1] = React.useState(participantsData.filter(p => p.domain === "AI/ML").splice(0, 10));
-   const [participants2, setParticipants2] = React.useState(participantsData.filter(p => p.domain === "Ethical Hacking").splice(0, 10));
-   const [participants3, setParticipants3] = React.useState(participantsData.filter(p => p.domain === "Robotics and Internet of Things").splice(0, 10));
+   const [participants1, setParticipants1] = React.useState(participantsData.filter(p => p.domain === "App Development").splice(0, 10));
+   const [participants2, setParticipants2] = React.useState(participantsData.filter(p => p.domain === "Machine Learning").splice(0, 10));
+   const [participants3, setParticipants3] = React.useState(participantsData.filter(p => p.domain === "Python Programming").splice(0, 10));
 
    useEffect(() => {
 
@@ -67,13 +67,13 @@ export default function Admin() {
    // }
 
    useEffect(() => {
-      setParticipants1(participantsData.filter(p => p.domain === "AI/ML").splice(10 * state1, 10));
+      setParticipants1(participantsData.filter(p => p.domain === "App Development").splice(10 * state1, 10));
    }, [state1])
    useEffect(() => {
-      setParticipants2(participantsData.filter(p => p.domain === "Ethical Hacking").splice(10 * state2, 10));
+      setParticipants2(participantsData.filter(p => p.domain === "Machine Learning").splice(10 * state2, 10));
    }, [state2])
    useEffect(() => {
-      setParticipants3(participantsData.filter(p => p.domain === "Robotics and Internet of Things").splice(10 * state3, 10));
+      setParticipants3(participantsData.filter(p => p.domain === "Python Programming").splice(10 * state3, 10));
    }, [state3])
 
    const styles2 = StyleSheet.create({
@@ -111,8 +111,8 @@ export default function Admin() {
                      <div className="" style={{ width: "31%" }}>
                         <div className="d-flex justify-content-evenly p-3">
                            <button disabled={state1 === 0} onClick={() => setState1(prev => prev - 1)} className="btn btn-sm btn-primary">{'<<'}</button>
-                           <div className="p text-center"> <b> AI/ML</b> ({state1 * 10} - {state1 * 10 + 10}) </div>
-                           <button disabled={state1 === 18} onClick={() => setState1(prev => prev + 1)} className="btn btn-sm btn-primary">{'>>'}</button>
+                           <div className="p text-center"> <b> App Development</b> ({state1 * 10} - {state1 * 10 + 10}) </div>
+                           <button disabled={state1 === 3} onClick={() => setState1(prev => prev + 1)} className="btn btn-sm btn-primary">{'>>'}</button>
                         </div>
                         <div className="row">
                            {
@@ -121,7 +121,7 @@ export default function Admin() {
                                     border: "1px dotted grey",
                                  }}>
                                     <div style={styles2.view} id="preview" onClick={() => handleOpen(curr)} role={'button'}>
-                                       <img src="2.png" alt='' style={styles2.img} />
+                                       <img src="6.png" alt='' style={styles2.img} />
                                        <div style={styles2.name}>{curr.name}</div>
 
                                     </div>
@@ -133,8 +133,8 @@ export default function Admin() {
                      <div className="" style={{ width: "31%" }}>
                         <div className="d-flex justify-content-evenly p-3">
                            <button disabled={state2 === 0} onClick={() => setState2(prev => prev - 1)} className="btn btn-sm btn-primary">{'<<'}</button>
-                           <div className="p text-center"><b>Ethical Hacking</b> ({state2 * 10} - {state2 * 10 + 10})</div>
-                           <button disabled={state2 === 5} onClick={() => setState2(prev => prev + 1)} className="btn btn-sm btn-primary">{'>>'}</button>
+                           <div className="p text-center"><b>Machine Learning</b> ({state2 * 10} - {state2 * 10 + 10})</div>
+                           <button disabled={state2 === 2} onClick={() => setState2(prev => prev + 1)} className="btn btn-sm btn-primary">{'>>'}</button>
                         </div>
                         <div className="row">
                            {
@@ -143,7 +143,7 @@ export default function Admin() {
                                     border: "1px dotted grey",
                                  }}>
                                     <div style={styles2.view} id="preview" onClick={() => handleOpen(curr)} role={'button'}>
-                                       <img src="3.png" alt='' style={styles2.img} />
+                                       <img src="4.png" alt='' style={styles2.img} />
                                        <div style={styles2.name}>{curr.name}</div>
 
                                     </div>
@@ -155,8 +155,8 @@ export default function Admin() {
                      <div className="" style={{ width: "31%" }}>
                         <div className="d-flex justify-content-evenly p-3">
                            <button disabled={state3 === 0} onClick={() => setState3(prev => prev - 1)} className="btn btn-sm btn-primary">{'<<'}</button>
-                           <div className="p text-center"> <b> Robotics & IOT</b>({state3 * 10} - {state3 * 10 + 10})</div>
-                           <button disabled={state3 === 9} onClick={() => setState3(prev => prev + 1)} className="btn btn-sm btn-primary">{'>>'}</button>
+                           <div className="p text-center"> <b> Python Programming</b>({state3 * 10} - {state3 * 10 + 10})</div>
+                           <button disabled={state3 === 1} onClick={() => setState3(prev => prev + 1)} className="btn btn-sm btn-primary">{'>>'}</button>
                         </div>
                         <div className="row">
                            {
@@ -165,7 +165,7 @@ export default function Admin() {
                                     border: "1px dotted grey",
                                  }}>
                                     <div style={styles2.view} id="preview" onClick={() => handleOpen(curr)} role={'button'}>
-                                       <img src="4.png" alt='' style={styles2.img} />
+                                       <img src="5.png" alt='' style={styles2.img} />
                                        <div style={styles2.name}>{curr.name}</div>
 
                                     </div>
