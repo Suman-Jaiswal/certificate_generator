@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { PDFViewer, PDFDownloadLink } from '@react-pdf/renderer';
 import { useParams, Navigate } from 'react-router-dom';
-import { participantsData } from './data3';
+import { participantsData } from './data';
 import MyDocument from './MyDocument';
 
 

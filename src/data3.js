@@ -1,4 +1,4 @@
-export const participantsData = [
+export const data3 = [
     {
         hash: "DS101",
         name: "Prakhar Jain",

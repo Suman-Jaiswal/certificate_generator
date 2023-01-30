@@ -11,9 +11,14 @@ export default function MyDocument({ currentParticipant }) {
 
     useEffect(() => {
         if (!currentParticipant) return;
-        if (currentParticipant.domain === "Web Development") setImg("8.png");
+        if (currentParticipant.domain === "AI/ML") setImg("1.png");
+        else if (currentParticipant.domain === "Ethical Hacking") setImg("2.png");
+        else if (currentParticipant.domain === "Robotics and Internet of Things") setImg("3.png");
+        else if (currentParticipant.domain === "App Development") setImg("4.png");
+        else if (currentParticipant.domain === "Machine Learning") setImg("5.png");
+        else if (currentParticipant.domain === "Python Programming") setImg("6.png");
         else if (currentParticipant.domain === "Data Science") setImg("7.png");
-        // else setImg("5.png");
+        else if (currentParticipant.domain === "Web Development") setImg("8.png");
     }, [currentParticipant])
 
     const styles = StyleSheet.create({
