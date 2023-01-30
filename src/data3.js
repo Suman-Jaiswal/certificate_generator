@@ -8,8 +8,8 @@ export const participantsData = [
     },
     {
         hash: "DS102",
-        name: "TARUN MARSKOLHE",
-        fullName: "Tarun Marskolhe",
+        name: "Tarun Marskolhe",
+        fullName: "TARUN MARSKOLHE",
         email: "tarunmarskolhe2004@gmail.com",
         domain: "Data Science"
     },
@@ -29,8 +29,8 @@ export const participantsData = [
     },
     {
         hash: "DS105",
-        name: "MEHEJABEE PATHAN",
-        fullName: "Mehejabee Pathan",
+        name: "Mehejabee Pathan",
+        fullName: "MEHEJABEE PATHAN",
         email: "pathan.mehejabee37@gmail.com",
         domain: "Data Science"
     },
@@ -57,8 +57,8 @@ export const participantsData = [
     },
     {
         hash: "DS109",
-        name: "Jaffer siddiq khan",
-        fullName: "Jaffer Siddiq Khan",
+        name: "Jaffer Siddiq Khan",
+        fullName: "Jaffer siddiq khan",
         email: "Jaffersiddiqkhan@gmail.com",
         domain: "Data Science"
     },
@@ -134,8 +134,8 @@ export const participantsData = [
     },
     {
         hash: "WD108",
-        name: "KRITIKA DUA",
-        fullName: "Kritika Dua",
+        name: "Kritika Dua",
+        fullName: "KRITIKA DUA",
         email: "duakritika606@gmail.com",
         domain: "Web Development"
     },
