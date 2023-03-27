@@ -5,12 +5,6 @@ import { Modal } from 'react-bootstrap';
 import { participantsData } from './data';
 import MyDocument from './MyDocument';
 
-// const mailjet = new Mailjet({
-//    apiKey: '07ac58e575dd1452a6a67839c5810966',
-//    apiSecret: '610651e00f8431746ab2b222c9a507dd'
-// });
-
-
 // certificates photos
 const certificates = [
     "1.png",
@@ -36,7 +30,7 @@ const domains = [
 
 export default function Admin() {
 
-    const [isLogin, setIsLogin] = React.useState(false);
+    // const [isLogin, setIsLogin] = React.useState(false);
 
     const [state0, setState0] = React.useState(0);
     const [state1, setState1] = React.useState(0);
@@ -58,7 +52,7 @@ export default function Admin() {
 
     const [show, setShow] = React.useState(false);
     const [currentParticipant, setCurrentParticipant] = React.useState(null);
-    const [show1, setShow1] = React.useState(true);
+    const [show1, setShow1] = React.useState(false);
     const [password, setPassword] = React.useState("");
 
     useEffect(() => {
@@ -97,7 +91,7 @@ export default function Admin() {
         e.preventDefault();
         if (password === "123456") {
             setShow1(false);
-            setIsLogin(true);
+            // setIsLogin(true);
         }
         else {
             alert("Wrong Password");
@@ -118,6 +112,7 @@ export default function Admin() {
         img: {
             width: "100%",
             height: "100%",
+            border: "1px dotted rgba(0,0,0,0.5)",
         },
         name: {
             position: "absolute",
@@ -143,7 +138,7 @@ export default function Admin() {
     return (
         <>
             {
-                !isLogin ? <div className='mt-5 text-center fw-bold'  >
+                false ? <div className='mt-5 text-center fw-bold'  >
                     <div className="btn btn-primary" onClick={() => setShow1(true)}>Admin Login</div>
                 </div> :
                     <>
@@ -151,8 +146,8 @@ export default function Admin() {
 
                             {
                                 participants0 && participants0.length > 0 &&
-                                <div className="p-3 pt-0 mx-2" style={{ width: 600, height: '98vh', overflowY: 'scroll' }} >
-                                    <div className="d-flex justify-content-evenly p-3 position-sticky top-0 bg-light" style={{ zIndex: 10 }}>
+                                <div className="p-3 pt-0 mx-2" style={{ width: 600, height: '97vh', overflowY: 'scroll' }} >
+                                    <div className="d-flex my-2 justify-content-evenly p-3 position-sticky top-0 bg-light rounded" style={{ zIndex: 10, boxShadow: '0px 1px 3px 0px #aaa' }}>
                                         <button disabled={state0 === 0} onClick={() => setState0(prev => prev - 1)} className="btn btn-sm btn-primary">{'<<'}</button>
                                         <div className="p text-center"><b>{participants0[0].domain}</b> ({state0 * 10} - {state0 * 10 + 10})</div>
                                         <button
@@ -160,12 +155,10 @@ export default function Admin() {
                                             onClick={() => setState0(prev => prev + 1)} className="btn btn-sm btn-primary">{'>>'}
                                         </button>
                                     </div>
-                                    <div className="row">
+                                    <div className="row pt-1">
                                         {
                                             participants0.map((curr, i) =>
-                                                <div key={i} className="col-6 p-2" style={{
-                                                    border: "1px dotted grey",
-                                                }}>
+                                                <div key={i} className="col-6 p-1" >
                                                     <div style={styles2.view} id="preview" onClick={() => handleOpen(curr)} role={'button'}>
                                                         <img src={certificates[0]} alt='' style={styles2.img} />
                                                         <div style={styles2.name}>{curr.name}</div>
@@ -181,8 +174,8 @@ export default function Admin() {
 
                             {
                                 participants1 && participants1.length > 0 &&
-                                <div className="p-3 pt-0 mx-2" style={{ width: 600, height: '98vh', overflowY: 'scroll' }}>
-                                    <div className="d-flex justify-content-evenly p-3 position-sticky top-0 bg-light" style={{ zIndex: 10 }}>
+                                <div className="p-3 pt-0 mx-2" style={{ width: 600, height: '97vh', overflowY: 'scroll' }}>
+                                    <div className="d-flex my-2 justify-content-evenly p-3 position-sticky top-0 bg-light rounded" style={{ zIndex: 10, boxShadow: '0px 1px 3px 0px #aaa' }}>
                                         <button disabled={state1 === 0} onClick={() => setState1(prev => prev - 1)} className="btn btn-sm btn-primary">{'<<'}</button>
                                         <div className="p text-center"><b>{participants1[0].domain}</b> ({state1 * 10} - {state1 * 10 + 10})</div>
                                         <button
@@ -191,12 +184,10 @@ export default function Admin() {
                                         </button>
 
                                     </div>
-                                    <div className="row">
+                                    <div className="row pt-1">
                                         {
                                             participants1.map((curr, i) =>
-                                                <div key={i} className="col-6 p-2" style={{
-                                                    border: "1px dotted grey",
-                                                }}>
+                                                <div key={i} className="col-6 p-1" >
                                                     <div style={styles2.view} id="preview" onClick={() => handleOpen(curr)} role={'button'}>
                                                         <img src={certificates[1]} alt='' style={styles2.img} />
                                                         <div style={styles2.name}>{curr.name}</div>
@@ -213,8 +204,8 @@ export default function Admin() {
 
                             {
                                 participants2 && participants2.length > 0 &&
-                                <div className="p-3 pt-0 mx-2" style={{ width: 600, height: '98vh', overflowY: 'scroll' }}>
-                                    <div className="d-flex justify-content-evenly p-3 position-sticky top-0 bg-light" style={{ zIndex: 10 }}>
+                                <div className="p-3 pt-0 mx-2" style={{ width: 600, height: '97vh', overflowY: 'scroll' }}>
+                                    <div className="d-flex my-2 justify-content-evenly p-3 position-sticky top-0 bg-light rounded" style={{ zIndex: 10, boxShadow: '0px 1px 3px 0px #aaa' }}>
                                         <button disabled={state2 === 0} onClick={() => setState2(prev => prev - 1)} className="btn btn-sm btn-primary">{'<<'}</button>
                                         <div className="p text-center"><b>{participants2[0].domain}</b> ({state2 * 10} - {state2 * 10 + 10})</div>
                                         <button
@@ -222,12 +213,10 @@ export default function Admin() {
                                             onClick={() => setState2(prev => prev + 1)} className="btn btn-sm btn-primary">{'>>'}
                                         </button>
                                     </div>
-                                    <div className="row">
+                                    <div className="row pt-1">
                                         {
                                             participants2.map((curr, i) =>
-                                                <div key={i} className="col-6 p-2" style={{
-                                                    border: "1px dotted grey",
-                                                }}>
+                                                <div key={i} className="col-6 p-1" >
                                                     <div style={styles2.view} id="preview" onClick={() => handleOpen(curr)} role={'button'}>
                                                         <img src={certificates[2]} alt='' style={styles2.img} />
                                                         <div style={styles2.name}>{curr.name}</div>
@@ -242,8 +231,8 @@ export default function Admin() {
 
                             {
                                 participants3 && participants3.length > 0 &&
-                                <div className="p-3 pt-0 mx-2" style={{ width: 600, height: '98vh', overflowY: 'scroll' }}>
-                                    <div className="d-flex justify-content-evenly p-3 position-sticky top-0 bg-light" style={{ zIndex: 10 }}>
+                                <div className="p-3 pt-0 mx-2" style={{ width: 600, height: '97vh', overflowY: 'scroll' }}>
+                                    <div className="d-flex my-2 justify-content-evenly p-3 position-sticky top-0 bg-light rounded" style={{ zIndex: 10, boxShadow: '0px 1px 3px 0px #aaa' }}>
                                         <button disabled={state3 === 0} onClick={() => setState3(prev => prev - 1)} className="btn btn-sm btn-primary">{'<<'}</button>
                                         <div className="p text-center"><b>{participants3[0].domain}</b> ({state3 * 10} - {state3 * 10 + 10})</div>
                                         <button
@@ -251,12 +240,10 @@ export default function Admin() {
                                             onClick={() => setState3(prev => prev + 1)} className="btn btn-sm btn-primary">{'>>'}
                                         </button>
                                     </div>
-                                    <div className="row">
+                                    <div className="row pt-1">
                                         {
                                             participants3.map((curr, i) =>
-                                                <div key={i} className="col-6 p-2" style={{
-                                                    border: "1px dotted grey",
-                                                }}>
+                                                <div key={i} className="col-6 p-1" >
                                                     <div style={styles2.view} id="preview" onClick={() => handleOpen(curr)} role={'button'}>
                                                         <img src={certificates[3]} alt='' style={styles2.img} />
                                                         <div style={styles2.name}>{curr.name}</div>
@@ -271,8 +258,8 @@ export default function Admin() {
 
                             {
                                 participants4 && participants4.length > 0 &&
-                                <div className="p-3 pt-0 mx-2" style={{ width: 600, height: '98vh', overflowY: 'scroll' }}>
-                                    <div className="d-flex justify-content-evenly p-3 position-sticky top-0 bg-light" style={{ zIndex: 10 }}>
+                                <div className="p-3 pt-0 mx-2" style={{ width: 600, height: '97vh', overflowY: 'scroll' }}>
+                                    <div className="d-flex my-2 justify-content-evenly p-3 position-sticky top-0 bg-light rounded" style={{ zIndex: 10, boxShadow: '0px 1px 3px 0px #aaa' }}>
                                         <button disabled={state4 === 0} onClick={() => setState4(prev => prev - 1)} className="btn btn-sm btn-primary">{'<<'}</button>
                                         <div className="p text-center"><b>{participants4[0].domain}</b> ({state4 * 10} - {state4 * 10 + 10})</div>
                                         <button
@@ -280,12 +267,10 @@ export default function Admin() {
                                             onClick={() => setState4(prev => prev + 1)} className="btn btn-sm btn-primary">{'>>'}
                                         </button>
                                     </div>
-                                    <div className="row">
+                                    <div className="row pt-1">
                                         {
                                             participants4.map((curr, i) =>
-                                                <div key={i} className="col-6 p-2" style={{
-                                                    border: "1px dotted grey",
-                                                }}>
+                                                <div key={i} className="col-6 p-1" >
                                                     <div style={styles2.view} id="preview" onClick={() => handleOpen(curr)} role={'button'}>
                                                         <img src={certificates[4]} alt='' style={styles2.img} />
                                                         <div style={styles2.name}>{curr.name}</div>
@@ -300,8 +285,8 @@ export default function Admin() {
 
                             {
                                 participants5 && participants5.length > 0 &&
-                                <div className="p-3 pt-0 mx-2" style={{ width: 600, height: '98vh', overflowY: 'scroll' }}>
-                                    <div className="d-flex justify-content-evenly p-3 position-sticky top-0 bg-light" style={{ zIndex: 10 }}>
+                                <div className="p-3 pt-0 mx-2" style={{ width: 600, height: '97vh', overflowY: 'scroll' }}>
+                                    <div className="d-flex my-2 justify-content-evenly p-3 position-sticky top-0 bg-light rounded" style={{ zIndex: 10, boxShadow: '0px 1px 3px 0px #aaa' }}>
                                         <button disabled={state5 === 0} onClick={() => setState5(prev => prev - 1)} className="btn btn-sm btn-primary">{'<<'}</button>
                                         <div className="p text-center"><b>{participants5[0].domain}</b> ({state5 * 10} - {state5 * 10 + 10})</div>
                                         <button
@@ -309,12 +294,10 @@ export default function Admin() {
                                             onClick={() => setState5(prev => prev + 1)} className="btn btn-sm btn-primary">{'>>'}
                                         </button>
                                     </div>
-                                    <div className="row">
+                                    <div className="row pt-1">
                                         {
                                             participants5.map((curr, i) =>
-                                                <div key={i} className="col-6 p-2" style={{
-                                                    border: "1px dotted grey",
-                                                }}>
+                                                <div key={i} className="col-6 p-1" >
                                                     <div style={styles2.view} id="preview" onClick={() => handleOpen(curr)} role={'button'}>
                                                         <img src={certificates[5]} alt='' style={styles2.img} />
                                                         <div style={styles2.name}>{curr.name}</div>
@@ -329,8 +312,8 @@ export default function Admin() {
 
                             {
                                 participants6 && participants6.length > 0 &&
-                                <div className="p-3 pt-0 mx-2" style={{ width: 600, height: '98vh', overflowY: 'scroll' }}>
-                                    <div className="d-flex justify-content-evenly p-3 position-sticky top-0 bg-light" style={{ zIndex: 10 }}>
+                                <div className="p-3 pt-0 mx-2" style={{ width: 600, height: '97vh', overflowY: 'scroll' }}>
+                                    <div className="d-flex my-2 justify-content-evenly p-3 position-sticky top-0 bg-light rounded" style={{ zIndex: 10, boxShadow: '0px 1px 3px 0px #aaa' }}>
                                         <button disabled={state6 === 0} onClick={() => setState6(prev => prev - 1)} className="btn btn-sm btn-primary">{'<<'}</button>
                                         <div className="p text-center"><b>{participants6[0].domain}</b> ({state6 * 10} - {state6 * 10 + 10})</div>
                                         <button
@@ -338,12 +321,10 @@ export default function Admin() {
                                             onClick={() => setState6(prev => prev + 1)} className="btn btn-sm btn-primary">{'>>'}
                                         </button>
                                     </div>
-                                    <div className="row">
+                                    <div className="row pt-1">
                                         {
                                             participants6.map((curr, i) =>
-                                                <div key={i} className="col-6 p-2" style={{
-                                                    border: "1px dotted grey",
-                                                }}>
+                                                <div key={i} className="col-6 p-1" >
                                                     <div style={styles2.view} id="preview" onClick={() => handleOpen(curr)} role={'button'}>
                                                         <img src={certificates[6]} alt='' style={styles2.img} />
                                                         <div style={styles2.name}>{curr.name}</div>
@@ -358,8 +339,8 @@ export default function Admin() {
 
                             {
                                 participants7 && participants7.length > 0 &&
-                                <div className="p-3 pt-0 mx-2" style={{ width: 600, height: '98vh', overflowY: 'scroll' }}>
-                                    <div className="d-flex justify-content-evenly p-3 position-sticky top-0 bg-light" style={{ zIndex: 10 }}>
+                                <div className="p-3 pt-0 mx-2" style={{ width: 600, height: '97vh', overflowY: 'scroll' }}>
+                                    <div className="d-flex my-2 justify-content-evenly p-3 position-sticky top-0 bg-light rounded" style={{ zIndex: 10, boxShadow: '0px 1px 3px 0px #aaa' }}>
                                         <button disabled={state7 === 0} onClick={() => setState7(prev => prev - 1)} className="btn btn-sm btn-primary">{'<<'}</button>
                                         <div className="p text-center"><b>{participants7[0].domain}</b> ({state7 * 10} - {state7 * 10 + 10})</div>
                                         <button
@@ -367,12 +348,10 @@ export default function Admin() {
                                             onClick={() => setState7(prev => prev + 1)} className="btn btn-sm btn-primary">{'>>'}
                                         </button>
                                     </div>
-                                    <div className="row">
+                                    <div className="row pt-1">
                                         {
                                             participants7.map((curr, i) =>
-                                                <div key={i} className="col-6 p-2" style={{
-                                                    border: "1px dotted grey",
-                                                }}>
+                                                <div key={i} className="col-6 p-1" >
                                                     <div style={styles2.view} id="preview" onClick={() => handleOpen(curr)} role={'button'}>
                                                         <img src={certificates[7]} alt='' style={styles2.img} />
                                                         <div style={styles2.name}>{curr.name}</div>
