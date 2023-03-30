@@ -3,7 +3,9 @@ import { PDFViewer, PDFDownloadLink } from '@react-pdf/renderer';
 import { useParams, Navigate } from 'react-router-dom';
 import { participantsData } from './data';
 import MyDocument from './MyDocument';
+import cult1 from './certificates/culturals/1.png';
 
+console.log(participantsData);
 
 function App() {
 
@@ -12,6 +14,7 @@ function App() {
     const [pass, setPass] = React.useState(false);
     const [loading, setLoading] = React.useState(true);
     const [currentParticipant, setCurrentParticipant] = React.useState(null);
+    const [currentImg, setCurrentImg] = React.useState(null);
 
     const participants = participantsData
 
@@ -25,6 +28,9 @@ function App() {
         setPass(true);
         setLoading(false);
         setCurrentParticipant(participant);
+        if (participant.hash.includes('BOB'))
+            setCurrentImg(cult1)
+
     }, [factor, hasheduri, participants]);
 
 
@@ -40,7 +46,7 @@ function App() {
                                 <div className="App m-auto">
                                     <div style={{ margin: 20, textAlign: 'center' }}>
                                         <span className='me-3'>Download your Certificate by clicking the "Download" button! </span>
-                                        <PDFDownloadLink document={<MyDocument currentParticipant={currentParticipant} />}
+                                        <PDFDownloadLink document={<MyDocument currentImg={currentImg} currentParticipant={currentParticipant} />}
                                             fileName={`${currentParticipant && currentParticipant.name}.pdf`}
 
                                         >
@@ -53,7 +59,7 @@ function App() {
                                         </PDFDownloadLink>
                                     </div>
                                     <PDFViewer width={'100%'} height={810} showToolbar={false} >
-                                        <MyDocument currentParticipant={currentParticipant} />
+                                        <MyDocument currentImg={currentImg} currentParticipant={currentParticipant} />
                                     </PDFViewer>
                                 </div>
                         }

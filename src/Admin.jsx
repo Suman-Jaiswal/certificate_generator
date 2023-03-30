@@ -4,7 +4,8 @@ import React, { useEffect } from 'react'
 import { Modal } from 'react-bootstrap';
 import { participantsData } from './data';
 import MyDocument from './MyDocument';
-
+const oldParticipants = participantsData.splice(0, 451);
+console.log(oldParticipants);
 // certificates photos
 const certificates = [
     "1.png",
@@ -56,35 +57,35 @@ export default function Admin() {
     const [password, setPassword] = React.useState("");
 
     useEffect(() => {
-        setParticipants0(participantsData.filter(p => p.domain === domains[0]).splice(10 * state0, 10));
+        setParticipants0(oldParticipants.filter(p => p.domain === domains[0]).splice(10 * state0, 10));
     }, [state0])
 
     useEffect(() => {
-        setParticipants1(participantsData.filter(p => p.domain === domains[1]).splice(10 * state1, 10));
+        setParticipants1(oldParticipants.filter(p => p.domain === domains[1]).splice(10 * state1, 10));
     }, [state1])
 
     useEffect(() => {
-        setParticipants2(participantsData.filter(p => p.domain === domains[2]).splice(10 * state2, 10));
+        setParticipants2(oldParticipants.filter(p => p.domain === domains[2]).splice(10 * state2, 10));
     }, [state2])
 
     useEffect(() => {
-        setParticipants3(participantsData.filter(p => p.domain === domains[3]).splice(10 * state3, 10));
+        setParticipants3(oldParticipants.filter(p => p.domain === domains[3]).splice(10 * state3, 10));
     }, [state3])
 
     useEffect(() => {
-        setParticipants4(participantsData.filter(p => p.domain === domains[4]).splice(10 * state4, 10));
+        setParticipants4(oldParticipants.filter(p => p.domain === domains[4]).splice(10 * state4, 10));
     }, [state4])
 
     useEffect(() => {
-        setParticipants5(participantsData.filter(p => p.domain === domains[5]).splice(10 * state5, 10));
+        setParticipants5(oldParticipants.filter(p => p.domain === domains[5]).splice(10 * state5, 10));
     }, [state5])
 
     useEffect(() => {
-        setParticipants6(participantsData.filter(p => p.domain === domains[6]).splice(10 * state6, 10));
+        setParticipants6(oldParticipants.filter(p => p.domain === domains[6]).splice(10 * state6, 10));
     }, [state6])
 
     useEffect(() => {
-        setParticipants7(participantsData.filter(p => p.domain === domains[7]).splice(10 * state7, 10));
+        setParticipants7(oldParticipants.filter(p => p.domain === domains[7]).splice(10 * state7, 10));
     }, [state7])
 
     const login = (e) => {
@@ -151,7 +152,7 @@ export default function Admin() {
                                         <button disabled={state0 === 0} onClick={() => setState0(prev => prev - 1)} className="btn btn-sm btn-primary">{'<<'}</button>
                                         <div className="p text-center"><b>{participants0[0].domain}</b> ({state0 * 10} - {state0 * 10 + 10})</div>
                                         <button
-                                            disabled={state0 === Math.floor(participantsData.filter(d => d.domain === participants0[0].domain).length / 10)}
+                                            disabled={state0 === Math.floor(oldParticipants.filter(d => d.domain === participants0[0].domain).length / 10)}
                                             onClick={() => setState0(prev => prev + 1)} className="btn btn-sm btn-primary">{'>>'}
                                         </button>
                                     </div>
@@ -179,7 +180,7 @@ export default function Admin() {
                                         <button disabled={state1 === 0} onClick={() => setState1(prev => prev - 1)} className="btn btn-sm btn-primary">{'<<'}</button>
                                         <div className="p text-center"><b>{participants1[0].domain}</b> ({state1 * 10} - {state1 * 10 + 10})</div>
                                         <button
-                                            disabled={state1 === Math.floor(participantsData.filter(d => d.domain === participants1[0].domain).length / 10)}
+                                            disabled={state1 === Math.floor(oldParticipants.filter(d => d.domain === participants1[0].domain).length / 10)}
                                             onClick={() => setState1(prev => prev + 1)} className="btn btn-sm btn-primary">{'>>'}
                                         </button>
 
@@ -209,7 +210,7 @@ export default function Admin() {
                                         <button disabled={state2 === 0} onClick={() => setState2(prev => prev - 1)} className="btn btn-sm btn-primary">{'<<'}</button>
                                         <div className="p text-center"><b>{participants2[0].domain}</b> ({state2 * 10} - {state2 * 10 + 10})</div>
                                         <button
-                                            disabled={state2 === Math.floor(participantsData.filter(d => d.domain === participants2[0].domain).length / 10)}
+                                            disabled={state2 === Math.floor(oldParticipants.filter(d => d.domain === participants2[0].domain).length / 10)}
                                             onClick={() => setState2(prev => prev + 1)} className="btn btn-sm btn-primary">{'>>'}
                                         </button>
                                     </div>
@@ -236,7 +237,7 @@ export default function Admin() {
                                         <button disabled={state3 === 0} onClick={() => setState3(prev => prev - 1)} className="btn btn-sm btn-primary">{'<<'}</button>
                                         <div className="p text-center"><b>{participants3[0].domain}</b> ({state3 * 10} - {state3 * 10 + 10})</div>
                                         <button
-                                            disabled={state3 === Math.floor(participantsData.filter(d => d.domain === participants3[0].domain).length / 10)}
+                                            disabled={state3 === Math.floor(oldParticipants.filter(d => d.domain === participants3[0].domain).length / 10)}
                                             onClick={() => setState3(prev => prev + 1)} className="btn btn-sm btn-primary">{'>>'}
                                         </button>
                                     </div>
@@ -263,7 +264,7 @@ export default function Admin() {
                                         <button disabled={state4 === 0} onClick={() => setState4(prev => prev - 1)} className="btn btn-sm btn-primary">{'<<'}</button>
                                         <div className="p text-center"><b>{participants4[0].domain}</b> ({state4 * 10} - {state4 * 10 + 10})</div>
                                         <button
-                                            disabled={state4 === Math.floor(participantsData.filter(d => d.domain === participants4[0].domain).length / 10)}
+                                            disabled={state4 === Math.floor(oldParticipants.filter(d => d.domain === participants4[0].domain).length / 10)}
                                             onClick={() => setState4(prev => prev + 1)} className="btn btn-sm btn-primary">{'>>'}
                                         </button>
                                     </div>
@@ -290,7 +291,7 @@ export default function Admin() {
                                         <button disabled={state5 === 0} onClick={() => setState5(prev => prev - 1)} className="btn btn-sm btn-primary">{'<<'}</button>
                                         <div className="p text-center"><b>{participants5[0].domain}</b> ({state5 * 10} - {state5 * 10 + 10})</div>
                                         <button
-                                            disabled={state5 === Math.floor(participantsData.filter(d => d.domain === participants5[0].domain).length / 10)}
+                                            disabled={state5 === Math.floor(oldParticipants.filter(d => d.domain === participants5[0].domain).length / 10)}
                                             onClick={() => setState5(prev => prev + 1)} className="btn btn-sm btn-primary">{'>>'}
                                         </button>
                                     </div>
@@ -317,7 +318,7 @@ export default function Admin() {
                                         <button disabled={state6 === 0} onClick={() => setState6(prev => prev - 1)} className="btn btn-sm btn-primary">{'<<'}</button>
                                         <div className="p text-center"><b>{participants6[0].domain}</b> ({state6 * 10} - {state6 * 10 + 10})</div>
                                         <button
-                                            disabled={state6 === Math.floor(participantsData.filter(d => d.domain === participants6[0].domain).length / 10)}
+                                            disabled={state6 === Math.floor(oldParticipants.filter(d => d.domain === participants6[0].domain).length / 10)}
                                             onClick={() => setState6(prev => prev + 1)} className="btn btn-sm btn-primary">{'>>'}
                                         </button>
                                     </div>
@@ -344,7 +345,7 @@ export default function Admin() {
                                         <button disabled={state7 === 0} onClick={() => setState7(prev => prev - 1)} className="btn btn-sm btn-primary">{'<<'}</button>
                                         <div className="p text-center"><b>{participants7[0].domain}</b> ({state7 * 10} - {state7 * 10 + 10})</div>
                                         <button
-                                            disabled={state7 === Math.floor(participantsData.filter(d => d.domain === participants7[0].domain).length / 10)}
+                                            disabled={state7 === Math.floor(oldParticipants.filter(d => d.domain === participants7[0].domain).length / 10)}
                                             onClick={() => setState7(prev => prev + 1)} className="btn btn-sm btn-primary">{'>>'}
                                         </button>
                                     </div>
