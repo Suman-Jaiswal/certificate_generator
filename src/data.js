@@ -10,3 +10,4 @@ export const participantsData = [
     ...data3,
     ...culturalsData
 ]
+

@@ -4,8 +4,9 @@ import React, { useEffect } from 'react'
 import { Modal } from 'react-bootstrap';
 import { participantsData } from './data';
 import MyDocument from './MyDocument';
-const oldParticipants = participantsData.splice(0, 451);
-console.log(oldParticipants);
+var raw = [...participantsData];
+const oldParticipants = raw.splice(0, 451);
+
 // certificates photos
 const certificates = [
     "1.png",
